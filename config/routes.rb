@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   root "home#index"
 
   get "control", to: "control#index"
+  post "/control/:value", to: "control#update"
 end
