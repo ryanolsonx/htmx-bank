@@ -1,5 +1,6 @@
 <h1>Bank (Control)</h1>
 <h2><%= @game.bank %></h2>
+<h2>Turns: <%= @game.turns_occurred %></h2>
 <form>
     <button hx-post="/control/2">2</button>
     <button hx-post="/control/3">3</button>
