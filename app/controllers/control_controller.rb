@@ -4,19 +4,12 @@ class ControlController < ApplicationController
   end
 
   def update
-    game = Game.first
+    # number, reset, or doubles
     value = params[:value]
-    if value == "reset"
-      game.bank = 0
-      game.turns_occurred = 0
-    elsif value == "doubles"
-      game.bank = game.bank * 2
-      game.turns_occurred += 1
-    else
-      value = value.to_i
-      game.bank = game.bank + value
-      game.turns_occurred += 1
-    end
+
+    game = Game.first
+    game.bank = UpdateBank.(value, game.bank)
+    game.turns_occurred = UpdateTurns.(value, game.turns_occurred)
     game.save
   end
 end
